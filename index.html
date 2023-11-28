@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Happy Birthday Day, bebekeyks!</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
+            
+            *{
+                text-decoration:underline;
+            }
+
+            body {
+                font-family:'Cutive Mono', serif;
+                background-color:burlywood; 
+                color: rgb(43, 50, 71);
+            }
+
+            html{
+                padding: 1rem;
+                
+            }
+    
+            a {
+                color: #222;
+            }
+    
+            .wrap {
+                width: 100%;
+                text-align: center;
+            }
+    
+            .secret_message {
+                margin-top: 1rem;
+                text-align: left;
+                font-size: 1.2rem;
+                line-height: 1.7rem;       
+            }
+
+            .start{
+                width: 3rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .start img{
+                border-style: solid;
+                border-radius: 1rem;
+                box-shadow: 5px 5px 0px rgb(4, 209, 154);
+                animation: myslide2;
+                animation-duration: 2.5s;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes myslide2{
+                50%{box-shadow: 0px 0px 0px rgb(59, 209, 4);}
+            }
+
+            .start img:focus{
+                animation: myslide3; /*use tabindex="0" attribute in css to focus on img. focus used to change state onclick.*/
+                box-shadow: 5px 5px 0px rgb(78, 44, 0);
+            }
+
+            li{
+            list-style-type:japanese-formal;
+            padding: 1rem;
+            }
+
+            section{
+                margin: 1rem;
+                padding: 0.5rem;
+                background-color: burlywood;
+                border-style: solid;
+                border-radius: 1rem;
+                box-shadow: 10px 10px 0px rgb(78, 44, 0);
+            }
+
+            .note p{
+                font-style: italic;
+                font-weight: bold;
+                color: rgba(61, 28, 15, 0.993);
+            }
+
+            ::-webkit-scrollbar{
+                width: 1rem;
+            }
+            ::-webkit-scrollbar-track{
+                background-color: burlywood;
+            }
+            ::-webkit-scrollbar-thumb{
+                background-color: rgb(235, 177, 101);
+                border-style: solid;
+            }
+
+            .heart{
+                width: 1.5rem;
+            }
+
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <a href="#" class="start"><img class="start" src="./resource/letter.png" alt="✉" tabindex="0"></a>
+            <div class="secret_message" 
+            data-text="<p>For the most intriguing person I ever met,</p>
+            <center><strong>Happy 23rd Birthday!</strong></center>
+            <p>Ang bilis lang ng panahon, beh 'no? </p>
+            <p> Parang kailan lang kita nakilala sa omegle tapos ngayon girlfriend na kita.</p>
+            
+            <p>I never thought we would be more than friends, happy crush lang dapat kita!!!</p>
+            <p>Ang epal mo kasi 'yan tuloy nahulog ako sa 'yo, 'di naman ako nagrereklamo HAHAHAHAHA</p>
+            <p>Anyways, I'm so thankful talaga sa 'yo, you don't know how happy I am noong bumalik ka</p>
+            <p>tapos 'yong pagbalik mo tamang tama pa na broken ako, ang epal mo talaga!</p>            
+            <p>Baby, we're totally opposite talaga 'no? pero kahit gaano tayo ka opposite we still get along.</p>
+            
+            <p>If things get hard, I'm here lang ah na kahit talikuran ka ng mundo, I will be still here. </p>
+            <p>I just love you so much, everything about you is so... lovable.</p>
+            <p>No wonder na nahulog ako, kahit na moody ka, I still love you.</p>
+            <p>Pipiliin ka po araw-araw.</p>
+            <br>
+            
+            <section class='note'>
+                <p>Happy Birthday ulit!</p>
+                <p>I hope you'll enjoy your day</p>
+                <p>I love you so much, my love.</p>
+                <p>So, Congratulations on successfully orbiting the Sun once again in approximately 365.25 days.</p>
+            </section>
+            <div align='right'><strong>- By Girlfriend mo</strong></div>"
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        
+    </script>
+    <script>
+        var running = false;
+        function typeWriter(text, n) {
+            if (n < (text.length)) {
+                $('.secret_message').html(text.substring(0, n + 1) + "<img class='heart' src='./resource/heart.png' alt='❤'>");
+                n++;
+                setTimeout(function () {
+                    typeWriter(text, n)
+                }, 80);
+            }
+            else {
+                running = false;
+            }
+        }
+
+        $('.start').click(function (e) {
+            e.stopPropagation();
+            if (running == false) {
+                var text = $('.secret_message').data('text');
+                running = true;
+                typeWriter(text, 0);
+            }
+        });
+    </script>
+
+
+</body>
+</html>
+
